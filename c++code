@@ -1,0 +1,31 @@
+class Solution
+{
+    public:
+   vector<string> an;
+  void fun(int op,int cs,string t,int n)
+  {
+      if(op==n&&cs==n)//when size of string is completed
+      
+      {
+          an.push_back(t);
+          return;
+      }
+      
+      if(op<n)
+      {
+         fun(op+1,cs,t+"(",n);
+         
+      }
+      if(cs<op)
+      fun(op,cs+1,t+")",n);
+      
+  }
+    vector<string> AllParenthesis(int n) 
+    {
+          int op=0,cs=0;
+          string s="";
+          fun(op,cs,s,n);
+          return an;
+    }
+};
+
